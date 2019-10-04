@@ -1,0 +1,38 @@
+---
+server:
+  port: 8081
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/pages/
+      suffix: .jsp
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/spring_boot?useSSL=false
+    username: root
+    password: root
+    tomcat:
+      max-idle: 5
+      max-active: 2
+      max-wait: 5000
+      max-age: 60000
+      min-idle: 2
+      initial-size: 10
+      validation-query: SELECT 1
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+      hibernate.default_schema: employee
+logging:
+  level:
+    com.rs.app.: debug 
+    
+    
